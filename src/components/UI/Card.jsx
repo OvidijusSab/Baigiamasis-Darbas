@@ -1,8 +1,4 @@
 import styled from 'styled-components'
-import { useContext } from 'react';
-import CardsContext from '../contexts/CardsContext';
-import UsersContext from '../contexts/UsersContext';
-import { CardsActionTypes } from '../contexts/CardsContext';
 import { Link,useLocation } from "react-router-dom";
 
 const StyledDiv = styled.div`
@@ -26,27 +22,13 @@ const StyledDiv = styled.div`
 
 const Card = ({data}) => {
 
-  const location = useLocation();
-  const { setCards } = useContext(CardsContext)
-  const {loggedInUser} = useContext(UsersContext)
 
   return ( 
     <StyledDiv>
       <h3>{data.title}</h3>
       <p>{data.description}</p>
-    {
-      loggedInUser.id === data.userId &&
-      <button
-      onClick={() => {
-        setCards({
-          type:CardsActionTypes.delete,
-          id: data.id
-        })
-      }}
-    >
-      Delete 
-    </button>
-    }
+      <Link to={`/cards/${data.id}`}>More info</Link>
+  
     </StyledDiv>
    );
 }

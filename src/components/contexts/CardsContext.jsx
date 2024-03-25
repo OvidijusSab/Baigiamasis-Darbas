@@ -23,11 +23,9 @@ const reducer = (state, action) => {
         body: JSON.stringify(action.data)
       })
       return [...state, action.data]
-    case CardsActionTypes.delete:
-      fetch(`http://localhost:8080/cards/${action.id}`, {
-        method: "DELETE"
-      })
-      return state.filter(el => el.id !== action.id)
+      case CardsActionTypes.delete:
+        fetch(`http://localhost:8080/cards/${action.id}`,{ method: "DELETE" });
+        return state.filter(el => el.id !== action.id);
     default:
       console.error(`No such actions: ${action.type}`)
       return state;
