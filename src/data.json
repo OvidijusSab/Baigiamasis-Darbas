@@ -1,0 +1,113 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "userName": "John",
+      "passwordNoHash": "dzionas1",
+      "password": "$2a$08$mWQ9JRPiAQt4pK2lqV/oF.OphOmFEpx0QSiShqRxzRcq.3mtgLFtS",
+      "role": "admin"
+    },
+    {
+      "id": "1",
+      "userName": "Edd",
+      "passwordNoHash": "edasss",
+      "password": "$2a$08$aMKhlfDDID6bMmyei.KdkORrr6eKpOaPCcZEs8pZ3pCd5AJTM8j2.",
+      "role": "admin"
+    },
+    {
+      "id": "37363b13-6da1-48b3-b343-7946e119698a",
+      "userName": "Sneikas",
+      "passwordNoHash": "Sneikas1@",
+      "password": "$2a$08$kFHN8er6TdcK4y/GS8VrEurF6v3T54vKLUAj/380pv9TNB4CvpLNu",
+      "role": "user"
+    },
+    {
+      "id": "17175948-0ab4-47eb-9089-9f2dee328f66",
+      "userName": "Labaas",
+      "password": "$2a$08$.PQ77pRlExTvaPEt.ujNUOmUCQgaQ0UisQpaKPaZvEIS7APtQPiZy",
+      "passwordNoHash": "Labaas12@",
+      "role": "user"
+    },
+    {
+      "id": "60a06a94-0849-41bd-aab2-bd8856dd2660",
+      "userName": "Labaas123",
+      "password": "$2a$08$xovv0LkvU.QVhKplcJDiSeeIdkPYN/EOQ.BNe8i2CT.HKzIm7lH1K",
+      "passwordNoHash": "Labaas12@",
+      "role": "user"
+    }
+  ],
+  "cards": [
+    {
+      "id": "0",
+      "title": "Title0",
+      "userId": "1",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "comments": [
+        {
+          "id": "0",
+          "authorId": "0",
+          "text": "labas rytas"
+        },
+        {
+          "id": "1",
+          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+          "text": "SVEIKI SVEIKI"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "userId": "0",
+      "title": "Title1",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "comments": [
+        {
+          "id": "0",
+          "authorId": "0",
+          "text": "labas rytas"
+        },
+        {
+          "id": "1",
+          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+          "text": "SVEIKI SVEIKI"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "title": "Title2",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "comments": [
+        {
+          "id": "0",
+          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+          "text": "kon saka a mon saka"
+        },
+        {
+          "id": "1",
+          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+          "text": "jabadabadu"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "userId": "0",
+      "title": "Title3",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "comments": [
+        {
+          "id": "0",
+          "authorId": "0",
+          "text": "labas rytas"
+        },
+        {
+          "id": "1",
+          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+          "text": "SVEIKI SVEIKI"
+        }
+      ]
+    }
+  ]
+}
