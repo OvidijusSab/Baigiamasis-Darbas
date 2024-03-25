@@ -10,6 +10,7 @@ import AddNewCard from './components/pages/AddNewCard';
 import { useContext } from 'react';
 import UsersContext from './components/contexts/UsersContext';
 import OneCardPage from './components/pages/OneCardPage';
+import UserPage from './components/pages/UserPage';
 
 const App = () => {
 
@@ -31,6 +32,8 @@ const App = () => {
           <Route path='/user'>
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
+            <Route path=":name" element={
+            loggedInUser ? <UserPage /> : <Navigate to='/user/login' />} />
           </Route>
         </Routes>
       </main>
