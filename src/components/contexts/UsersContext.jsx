@@ -18,6 +18,7 @@ const reducer = (state, action) => {
 
 const UsersProvider = ({ children }) => {
 
+  const [loggedInUser, setLoggedInUser] = useState(false);
   const [users, setUsers] = useReducer(reducer, []);
 
   useEffect(() => {
@@ -33,7 +34,9 @@ const UsersProvider = ({ children }) => {
     <UsersContext.Provider
       value={{
         users,
-        setUsers
+        setUsers,
+        loggedInUser,
+        setLoggedInUser
       }}
     >
       {children}
