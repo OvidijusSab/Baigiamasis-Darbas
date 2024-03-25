@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from 'styled-components'
-// import { UserContext } from "../../contexts/UserContext";
-// import { useContext } from "react";
+import UsersContext from "../contexts/UsersContext";
+import { useContext } from "react";
 
 const StyledHeader = styled.header`
   padding: 0 20px;
@@ -66,7 +66,7 @@ const StyledHeader = styled.header`
 const Header = () => {
 
   const navigate = useNavigate();
-  // const { loggedInUser, setLoggedInUser } = useContext(UserContext)
+  const { loggedInUser, setLoggedInUser } = useContext(UsersContext)
   return (
     <StyledHeader>
       <div>
@@ -85,7 +85,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      {/* {
+      {
         loggedInUser ?
           <div>
             {
@@ -116,7 +116,7 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-      } */}
+      }
     </StyledHeader>
   );
 }

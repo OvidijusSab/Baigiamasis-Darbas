@@ -3,13 +3,23 @@ import { createContext, useReducer, useState, useEffect } from "react";
 const UsersContext = createContext();
 
 export const UsersActionTypes = {
-  getAll: 'fetches all data on initial load'
+  getAll: 'fetches all data on initial load',
+  addNew: 'adds new user to the data'
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
     case UsersActionTypes.getAll:
-      return action.data
+      return action.data;
+    case UsersActionTypes.addNew:
+      fetch(`http://localhost:8080/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(action.data)
+      });
+      return [...state, action.data]
     default:
       console.error(`No such actions: ${action.type}`)
       return state;
