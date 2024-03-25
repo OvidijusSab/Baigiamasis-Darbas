@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import CardsContext from "../contexts/CardsContext";
+import UsersContext from "../contexts/UsersContext";
 import Card from "../UI/Card";
 import styled from "styled-components";
+import { Link,useLocation} from "react-router-dom";
 
 const StyledSection = styled.section`
 display: flex;
@@ -37,15 +39,19 @@ gap: 20px;
 const Cards = () => {
 
   const { cards } = useContext(CardsContext);
+  const { loggedInUser } = useContext(UsersContext);
+  const location = useLocation();
 
   return (
     <StyledSection>
       <h1>All posts</h1>
+      { loggedInUser && <Link to="/cards/addNew">Add New Card</Link> }
       {
         cards.map(card =>
           <Card
             key={card.id}
             data={card}
+            location={location}
           />
         )
       }
