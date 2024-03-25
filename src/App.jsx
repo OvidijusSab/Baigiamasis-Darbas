@@ -13,8 +13,8 @@ const App = () => {
       <Header />
       <main>
         <Routes>
-        <Route index element={<Home />} />
-          <Route path='cards'>
+          <Route index element={<Home />} />
+          <Route path='/cards'>
             <Route path='allCards' element={<Cards />} />
           </Route>
           <Route path='/user'>
