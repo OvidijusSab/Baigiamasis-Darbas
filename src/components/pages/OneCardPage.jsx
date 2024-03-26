@@ -8,6 +8,7 @@ import Comment from "../UI/Comment";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { v4 as uuid } from 'uuid';
+import { useState, useEffect } from 'react';
 
 const StyledSection = styled.section`
   padding-top: 50px;
@@ -59,7 +60,17 @@ const OneCardPage = () => {
   const { loggedInUser, users } = useContext(UsersContext);
   const { setCards, cards } = useContext(CardsContext);
   const card = cards.find(card => card.id === id);
-  const author = users.find(user => user.id === card.userId);
+  const author = card && users.find(user => user.id === card.userId);
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+
+  useEffect(() => {
+    if (card) {
+      setNewTitle(card.title);
+      setNewDescription(card.description);
+    }
+  }, [card]);
 
   // const [card, setCard] = useState([]);
   // useEffect(()=>{
@@ -105,19 +116,53 @@ const OneCardPage = () => {
               <img src={author.avatarURL} alt="author image" />
               <span>{author.userName}</span>
             </div>
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
+              {
+                card.edited && <p>This card has been edited.</p>
+              }
             {
-              loggedInUser.id === card.userId &&
-              <button
-                onClick={() => {
-                  setCards({
-                    type: CardsActionTypes.delete,
-                    id: card.id
-                  });
-                  navigation(-1);
-                }}
-              >Delete</button>
+              isEditing ? (
+                <>
+                  <input value={newTitle} onChange={e => setNewTitle(e.target.value)} />
+                  <input value={newDescription} onChange={e => setNewDescription(e.target.value)} />
+                  <button
+                    onClick={() => {
+                      setCards({
+                        type: CardsActionTypes.edit,
+                        id: card.id,
+                        title: newTitle,
+                        description: newDescription
+                      });
+                      setIsEditing(false);
+                    }}
+                  >Save</button>
+                </>
+              ) : (
+                <>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  {
+                    loggedInUser.id === card.userId &&
+                    <>
+                      <button
+                        onClick={() => {
+                          setCards({
+                            type: CardsActionTypes.delete,
+                            id: card.id
+                          });
+                          navigation(-1);
+                        }}
+                      >Delete</button>
+                      <button
+                        onClick={() => {
+                          setIsEditing(true);
+                          setNewTitle(card.title);
+                          setNewDescription(card.description);
+                        }}
+                      >Edit</button>
+                    </>
+                  }
+                </>
+              )
             }
           </div>
           <div>

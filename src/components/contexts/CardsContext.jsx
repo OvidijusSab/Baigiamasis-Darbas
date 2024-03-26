@@ -7,7 +7,8 @@ export const CardsActionTypes = {
   addNew: 'adds new card to the data',
   delete: "delete one specific card",
   addComment: "add new comment to specific card",
-  deleteComment: 'delete one specific comment'
+  deleteComment: 'delete one specific comment',
+  edit: "edit one specific card"
 }
 
 const reducer = (state, action) => {
@@ -62,6 +63,28 @@ const reducer = (state, action) => {
       return state.map(el => {
         if (el.id === action.cardId) {
           return changedCard;
+        } else {
+          return el;
+        }
+      });
+    case CardsActionTypes.edit:
+      const cardToEdit = state.find(el => el.id === action.id);
+      const editedCard = {
+        ...cardToEdit,
+        title: action.title,
+        description: action.description,
+        edited: true
+      };
+      fetch(`http://localhost:8080/cards/${action.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedCard)
+      });
+      return state.map(el => {
+        if (el.id === action.id) {
+          return editedCard;
         } else {
           return el;
         }
