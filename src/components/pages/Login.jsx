@@ -4,6 +4,7 @@ import { useFormik} from 'formik'
 import * as Yup from 'yup'
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import bcrypt from 'bcryptjs';
 
 const StyledSection = styled.section`
   display: flex;
@@ -48,7 +49,7 @@ const Login = () => {
       setWrongCredentials(true);
 
       const loggedInUser = users.find(user => user.userName === values.userName &&
-       user.password === values.password);
+        bcrypt.compareSync(values.password, user.password));
 
       if (loggedInUser === undefined) {
         setWrongCredentials(true);

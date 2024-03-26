@@ -38,7 +38,15 @@
     {
       "id": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
       "userName": "bandymas",
-      "password": "Bandymas12@",
+      "password": "$2a$08$4103yIgtV3MIPJj82U.66e4jwg1ZQbptI2lctnbczYIQa8zrtOSku",
+      "passwordNoHash": "Bandymas12@",
+      "role": "user"
+    },
+    {
+      "id": "72ffad77-d80b-4d18-bd1e-5948e2064af7",
+      "userName": "Sneikas1",
+      "password": "$2a$08$hZsUqmJsPFgbRhFEmAeJR.J05k/SMHJvT9VFXe32qD1pjK7tVpFXW",
+      "passwordNoHash": "Sneikas1@@",
       "role": "user"
     }
   ],
