@@ -33,7 +33,7 @@
       "userName": "Labaas123",
       "password": "$2a$08$xovv0LkvU.QVhKplcJDiSeeIdkPYN/EOQ.BNe8i2CT.HKzIm7lH1K",
       "passwordNoHash": "Labaas12@",
-      "role": "user"
+      "role": "admin"
     },
     {
       "id": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
