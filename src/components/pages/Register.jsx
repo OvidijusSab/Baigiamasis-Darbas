@@ -1,4 +1,4 @@
-import { useContext,useState,useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import UsersContext from "../contexts/UsersContext";
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
@@ -40,25 +40,27 @@ const Register = () => {
 
   const navigate = useNavigate();
   const [sameNameError, setSameNameError] = useState(false);
-  const {users,setUsers,setLoggedInUser} = useContext(UsersContext)
+  const { users, setUsers, setLoggedInUser } = useContext(UsersContext)
 
   const formik = useFormik({
     initialValues: {
       userName: "",
       password: "",
+      avatarURL: "",
       passwordRepeat: "",
     },
     onSubmit: (values) => {
       console.log(values)
 
-      if(users.find(user => user.userName === values.userName)){
+      if (users.find(user => user.userName === values.userName)) {
         setSameNameError(true);
       } else {
         const newUser = {
-          id:uuid(),
+          id: uuid(),
           userName: values.userName,
-          password: bcrypt.hashSync(values.password,8),
+          password: bcrypt.hashSync(values.password, 8),
           passwordNoHash: values.password,
+          avatarURL: values.avatarURL,
           role: "user"
         };
         setUsers({
@@ -85,12 +87,16 @@ const Register = () => {
         .trim(),
       passwordRepeat: Yup.string()
         .oneOf([Yup.ref('password')], 'Passwords must match')
-        .required("Field must be filled")
+        .required("Field must be filled"),
+      avatarURL: Yup.string()
+        .url('Must be a valid url')
+        .default('https://w7.pngwing.com/pngs/177/551/png-transparent-user-interface-design-computer-icons-default-stephen-salazar-graphy-user-interface-design-computer-wallpaper-sphere-thumbnail.png')
+        .trim(),
 
     })
   })
 
-  return ( 
+  return (
     <StyledSection>
       <h1>Register</h1>
       <form onSubmit={formik.handleSubmit}>
@@ -106,6 +112,20 @@ const Register = () => {
           />
           {
             formik.touched.userName && formik.errors.userName && <span>{formik.errors.userName}</span>
+          }
+        </div>
+        <div>
+          <label htmlFor="avatarURL">Avatar:</label>
+          <input
+            type="url"
+            name="avatarURL" id="avatarURL"
+            placeholder='Enter photo url..'
+            value={formik.values.avatarURL}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {
+            formik.touched.avatarURL && formik.errors.avatarURL && <span>{formik.errors.avatarURL}</span>
           }
         </div>
         <div>
@@ -142,7 +162,7 @@ const Register = () => {
         sameNameError && <p>Username is already taken</p>
       }
     </StyledSection>
-   );
+  );
 }
- 
+
 export default Register;
