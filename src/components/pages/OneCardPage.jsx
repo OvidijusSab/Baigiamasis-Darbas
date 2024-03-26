@@ -20,7 +20,6 @@ const StyledSection = styled.section`
     gap: 10px;
     flex-direction: column;
     align-items: center;
-    
     > h3{
       margin: 0;
     }
@@ -28,6 +27,28 @@ const StyledSection = styled.section`
       margin: 0;
       text-align: justify;
     }
+    >div{
+      position: relative;
+      
+    >span{
+      position: absolute;
+      background-color: gray;
+      border-radius: 5px;
+      font-size: 12px;
+      bottom: 3px;
+      left:1px
+    }
+    >img{
+      width: 40px;
+      height: 80%;
+      border-radius: 50%;
+    }
+  } 
+  }
+  >div:nth-child(2){
+    display: flex;
+    align-items: flex-start;
+    
   }
 `;
 
@@ -35,10 +56,11 @@ const OneCardPage = () => {
 
   const { id } = useParams();
   const navigation = useNavigate();
-  const { loggedInUser } = useContext(UsersContext);
+  const { loggedInUser, users } = useContext(UsersContext);
   const { setCards, cards } = useContext(CardsContext);
   const card = cards.find(card => card.id === id);
-  
+  const author = users.find(user => user.id === card.userId);
+
   // const [card, setCard] = useState([]);
   // useEffect(()=>{
   //   fetch(`http://localhost:8080/cards/${id}`)
@@ -52,10 +74,10 @@ const OneCardPage = () => {
     },
     validationSchema: Yup.object({
       text: Yup.string()
-      .min(10, 'Comment must be at least 10 symbols length')
-      .max(500, "Comment can't be longer than 500 symbols")
-      .required('This field must be filled')
-      .trim()
+        .min(10, 'Comment must be at least 10 symbols length')
+        .max(500, "Comment can't be longer than 500 symbols")
+        .required('This field must be filled')
+        .trim()
     }),
     onSubmit: (values) => {
       const newComment = {
@@ -79,6 +101,10 @@ const OneCardPage = () => {
         cards.length &&
         <>
           <div>
+            <div>
+              <img src={author.avatarURL} alt="author image" />
+              <span>{author.userName}</span>
+            </div>
             <h3>{card.title}</h3>
             <p>{card.description}</p>
             {
@@ -96,7 +122,7 @@ const OneCardPage = () => {
           </div>
           <div>
             {
-              card.comments?.map(comment => 
+              card.comments?.map(comment =>
                 <Comment
                   key={comment.id}
                   comment={comment}
@@ -130,5 +156,5 @@ const OneCardPage = () => {
     </StyledSection>
   );
 }
- 
+
 export default OneCardPage;

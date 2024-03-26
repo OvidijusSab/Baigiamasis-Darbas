@@ -5,6 +5,7 @@
       "userName": "John",
       "passwordNoHash": "dzionas1",
       "password": "$2a$08$mWQ9JRPiAQt4pK2lqV/oF.OphOmFEpx0QSiShqRxzRcq.3mtgLFtS",
+      "avatarURL": "https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_1280.png",
       "role": "admin"
     },
     {
@@ -12,6 +13,7 @@
       "userName": "Edd",
       "passwordNoHash": "edasss",
       "password": "$2a$08$aMKhlfDDID6bMmyei.KdkORrr6eKpOaPCcZEs8pZ3pCd5AJTM8j2.",
+      "avatarURL": "https://s.yimg.com/ny/api/res/1.2/HhhlXgc1kORt98mqx8UUcQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://media.zenfs.com/en/gizmodo_entertainment_912/6bf6ab0e9838a3e291ea6028ef280e70",
       "role": "admin"
     },
     {
@@ -19,6 +21,7 @@
       "userName": "Sneikas",
       "passwordNoHash": "Sneikas1@",
       "password": "$2a$08$kFHN8er6TdcK4y/GS8VrEurF6v3T54vKLUAj/380pv9TNB4CvpLNu",
+      "avatarURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIn-gE6j6sjvg0ekFgFBIzVP5VdN3aBu9dLg&usqp=CAU",
       "role": "user"
     },
     {
@@ -26,6 +29,7 @@
       "userName": "Labaas",
       "password": "$2a$08$.PQ77pRlExTvaPEt.ujNUOmUCQgaQ0UisQpaKPaZvEIS7APtQPiZy",
       "passwordNoHash": "Labaas12@",
+      "avatarURL": "https://preview.redd.it/trying-to-come-up-with-a-new-avatar-for-my-various-social-v0-wby69l6e1lsb1.jpg?width=519&format=pjpg&auto=webp&s=61341c3ce447f8356da3146c1903395fc43d28dc",
       "role": "user"
     },
     {
@@ -33,6 +37,7 @@
       "userName": "Labaas123",
       "password": "$2a$08$xovv0LkvU.QVhKplcJDiSeeIdkPYN/EOQ.BNe8i2CT.HKzIm7lH1K",
       "passwordNoHash": "Labaas12@",
+      "avatarURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2WWJEImdtBVeLhMDBgSTAfvvju5KltNqo2A&usqp=CAU",
       "role": "admin"
     },
     {
@@ -40,6 +45,7 @@
       "userName": "bandymas",
       "password": "$2a$08$4103yIgtV3MIPJj82U.66e4jwg1ZQbptI2lctnbczYIQa8zrtOSku",
       "passwordNoHash": "Bandymas12@",
+      "avatarURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsI4BVJivucLQGLWcrITEnDbNwa6nE5fR4Ig&usqp=CAU",
       "role": "user"
     },
     {
@@ -47,15 +53,25 @@
       "userName": "Sneikas1",
       "password": "$2a$08$hZsUqmJsPFgbRhFEmAeJR.J05k/SMHJvT9VFXe32qD1pjK7tVpFXW",
       "passwordNoHash": "Sneikas1@@",
+      "avatarURL": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg",
+      "role": "user"
+    },
+    {
+      "id": "4561939a-f09d-478d-815a-97e49650ed81",
+      "userName": "bandymas2",
+      "password": "$2a$08$L9eIjzfhysEFeuSKQOKwwup1PAGriS5Cy1dM9.1/fJKSMQ0VbwnYO",
+      "passwordNoHash": "Bandymas12@",
+      "avatarURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtAW7MoCWjH33jNU4yQpKGK054JKO2BJObQ&usqp=CAU",
       "role": "user"
     }
   ],
   "cards": [
     {
       "id": "0",
-      "title": "Title0",
+      "title": "Share your memories here",
       "userId": "1",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "description": "Share a funny or embarrassing childhood memory that still makes you laugh.",
+      "date": "Tue Mar 26 2024",
       "comments": [
         {
           "id": "0",
@@ -66,14 +82,20 @@
           "id": "1",
           "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
           "text": "SVEIKI SVEIKI"
+        },
+        {
+          "text": "LABLABLASLALSLSA\n",
+          "id": "dc7095cd-4225-4e70-bd14-2458396d9c11",
+          "authorId": "4561939a-f09d-478d-815a-97e49650ed81"
         }
       ]
     },
     {
       "id": "1",
       "userId": "0",
-      "title": "Title1",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "title": "Lets discuss",
+      "description": "What's a skill you've always wanted to learn but haven't had the chance to yet?",
+      "date": "Tue Mar 26 2024",
       "comments": [
         {
           "id": "0",
@@ -88,40 +110,32 @@
       ]
     },
     {
-      "id": "2",
-      "userId": "1",
-      "title": "Title2",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
+      "id": "984d1ad1-2574-4454-81e4-bc4744b2685f",
+      "userId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+      "title": "Help me guys",
+      "description": "Maybe anyone of u can help me with REACT project? PM me if possible",
+      "date": "Tue Mar 26 2024",
       "comments": [
         {
-          "id": "0",
-          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
-          "text": "kon saka a mon saka"
-        },
-        {
-          "id": "1",
-          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
-          "text": "jabadabadu"
+          "text": "What kind of help do u need? I can help u with that ",
+          "id": "d5011fb1-3f03-4cd1-8bd2-76131f124651",
+          "authorId": "95d3e787-64c7-4e64-9162-1bf10fdd529f"
         }
       ]
     },
     {
-      "id": "3",
-      "userId": "0",
-      "title": "Title3",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, eos.",
-      "comments": [
-        {
-          "id": "0",
-          "authorId": "0",
-          "text": "labas rytas"
-        },
-        {
-          "id": "1",
-          "authorId": "17175948-0ab4-47eb-9089-9f2dee328f66",
-          "text": "SVEIKI SVEIKI"
-        }
-      ]
+      "id": "62c847e1-7d7a-4bbb-acf2-0a369d6b490f",
+      "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
+      "title": "Conversation Starters",
+      "description": "Get the chatter flowing with these light-hearted and engaging questions! Perfect for breaking the ice at parties, family gatherings, or even on a casual night out with friends. Let the laughter and fun begin as you explore these quirky and entertaining topics together.",
+      "date": "Tue Mar 26 2024"
+    },
+    {
+      "id": "5bac4bde-385d-4bfd-8ce1-ef8f92397c10",
+      "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
+      "title": "asssssssssssssssssssssssssssssss",
+      "description": "ssssasssssssssssss",
+      "date": "Tue Mar 26 2024"
     }
   ]
 }

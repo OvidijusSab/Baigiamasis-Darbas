@@ -42,15 +42,16 @@ const AddNewCard = () => {
   const navigate = useNavigate()
   const {loggedInUser} = useContext(UsersContext)
   const {setCards} = useContext(CardsContext)
+  const currentDate = new Date();
 
   const formik = useFormik({
     initialValues: {
       title: "",
-      description: ""
+      description: "",
+      date:currentDate.toDateString(),
     }, 
     onSubmit: values => {
       console.log(values);
-      console.log(loggedInUser)
 
       const newCard = {
         id: uuid(),
@@ -62,6 +63,7 @@ const AddNewCard = () => {
         data: newCard
       });
       navigate(-1);
+      console.log(newCard.date)
     },
     validationSchema: Yup.object({
       title: Yup.string()
