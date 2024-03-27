@@ -10,34 +10,71 @@ import { CardsActionTypes } from "../contexts/CardsContext";
 
 const StyledSection = styled.section`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 50px;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: #424242; /* Dark grey background */
+  color: #fff; /* White text */
 
-  >h1{
+  > h1 {
     font-size: 2.5rem;
+    color: #90caf9; /* Light blue for the title */
   }
 
-  >form{
-  >div{
-    display: grid;
-    grid-template-columns: 0.5fr 1fr;
+  > form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #303030; /* Slightly lighter grey for the form background */
+    padding: 20px;
+    border-radius: 10px;
 
-    >textarea{
-      height: 5lh;
+    > div {
+      margin-bottom: 20px;
+
+      > input, label,textarea {
+        margin-top: 5px;
+        
+      }
+
+      > textarea {
+        width: 285px;
+      }
+      > input {
+        padding: 10px 0px;
+        border: none;
+        border-radius: 5px;
+        width: 290px;
+      }
+
+      > label {
+        color: #fff; /* White for labels */
+      }
+
+      > p {
+        color: red; /* Red for error messages */
+        text-align: center;
+        margin: 0;
+      }
     }
-    >input,label{
-      margin-top: 5px;
-    }
-     >p{
-      grid-column: span 3;
-      text-align: center;
-      color:red;
-      margin: 0;
+
+    > input:last-of-type {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #90caf9; /* Light blue for the button */
+      color: #000; /* Black for the button text */
+      cursor: pointer;
+
+      &:hover {
+        background-color: #fff; /* White for the button on hover */
+        color: #000; /* Black for the button text on hover */
+      }
     }
   }
-  }
-  `
+`;
 const AddNewCard = () => {
   const navigate = useNavigate()
   const {loggedInUser} = useContext(UsersContext)
@@ -67,8 +104,8 @@ const AddNewCard = () => {
     },
     validationSchema: Yup.object({
       title: Yup.string()
-        .min(5, 'Title must be at least 5 symbols length')
-        .max(50, "Title can't be longer than 50 symbols")
+        .min(5, 'Topic must be at least 5 symbols length')
+        .max(50, "Topic can't be longer than 50 symbols")
         .required('This field must be filled')
         .trim(),
       description: Yup.string()
@@ -81,14 +118,14 @@ const AddNewCard = () => {
 
   return (
     <StyledSection>
-      <h1>Add New Card</h1>
+      <h1>Add New Post</h1>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Topic:</label>
           <input
             type="text"
             name="title" id="title"
-            placeholder="Write card title..."
+            placeholder="Write topic..."
             value={formik.title}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
@@ -102,7 +139,7 @@ const AddNewCard = () => {
           <label htmlFor="description">Description:</label>
           <textarea
             name="description" id="description"
-            placeholder="Write card description..."
+            placeholder="Write topic description..."
             value={formik.description}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
@@ -112,7 +149,7 @@ const AddNewCard = () => {
             <p>{formik.errors.description}</p>
           }
         </div>
-        <input type="submit" value="Add New Card" />
+        <input type="submit" value="Post!" />
       </form>
     </StyledSection>
   );

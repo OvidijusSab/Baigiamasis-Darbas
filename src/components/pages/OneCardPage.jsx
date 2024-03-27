@@ -29,6 +29,13 @@ const StyledSection = styled.section`
     color: #fff; /* White text */
     background-color: #303030; /* Slightly lighter grey background for contrast */
 
+    >p:first-of-type{
+      position: absolute;
+      font-size: 12px;
+      color: lightgray;
+      bottom: 2px;
+      right: 5px;
+    }
     >div{
       position: relative;
  
@@ -68,6 +75,54 @@ const StyledSection = styled.section`
 
       &:hover{
         color: darkblue;
+      }
+    }
+  }
+  > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center  ;
+    align-items: center;
+    width: 300px;
+    background-color: #303030; /* Slightly lighter grey for the form background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-right: 40px;
+
+    > div {
+      margin-bottom: 20px;
+
+      > label {
+        color: #fff; /* White for labels */
+      }
+
+      > textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      > p {
+        color: red; /* Red for error messages */
+        text-align: center;
+        margin: 0;
+      }
+    }
+
+    > input[type="submit"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #90caf9; /* Light blue for the button */
+      color: #000; /* Black for the button text */
+      cursor: pointer;
+
+      &:hover {
+        background-color: #fff; /* White for the button on hover */
+        color: #000; /* Black for the button text on hover */
       }
     }
   }
@@ -137,7 +192,7 @@ const OneCardPage = () => {
               <span>{author.userName}</span>
             </div>
             {
-              card.edited && <p>This card has been edited.</p>
+              card.edited && <p>This post has been edited.</p>
             }
             {
               isEditing ? (

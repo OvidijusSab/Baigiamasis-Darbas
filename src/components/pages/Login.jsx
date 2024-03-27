@@ -8,32 +8,69 @@ import bcrypt from 'bcryptjs';
 
 const StyledSection = styled.section`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
-  padding-top: 70px;
+  justify-content: flex-start;
+  padding-top: 50px;
+  height: 100vh;
+  background-color: #424242; /* Dark grey background */
+  color: #fff; /* White text */
 
-  >h1{
+  > h1 {
     font-size: 2.5rem;
+    color: #90caf9; /* Light blue for the title */
   }
 
-  >form{
-  >div{
-    display: grid;
-    grid-template-columns: 0.5fr 1fr;
-    >input,label{
-      margin-top: 5px;
+  > form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #303030; /* Slightly lighter grey for the form background */
+    padding: 30px;
+    padding-right: 45px;
+    border-radius: 10px;
+
+    > div {
+      margin-bottom: 20px;
+
+      > input, label {
+        width: 100%;
+        margin-top: 5px;
+      }
+
+      > input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      > label {
+        color: #fff; /* White for labels */
+      }
+
+      > p {
+        color: red; /* Red for error messages */
+        text-align: center;
+        margin: 0;
+      }
     }
-     >p{
-      grid-column: span 3;
-      text-align: center;
-      color:red;
-      margin: 0;
+
+    > input:last-of-type {
+      padding: 5px 10px;
+      border: none;
+      align-self: center;
+      border-radius: 5px;
+      background-color: #fff; /* Light blue for the button */
+      color: #000; /* Black for the button text */
+      cursor: pointer;
+
+      &:hover {
+        background-color: #90caf9; /* White for the button on hover */
+        color: #000; /* Black for the button text on hover */
+      }
     }
   }
-  }
-
-`
-
+`;
 const Login = () => {
 
   const navigate = useNavigate();
@@ -103,7 +140,7 @@ const Login = () => {
             <p>{formik.errors.password}</p>
           }
         </div>
-        <input type="submit" value="login" />
+        <input type="submit" value="Login" />
       </form>
       {
         wrongCredentials && <p>No user with such username or password combination</p>
