@@ -63,6 +63,14 @@
       "passwordNoHash": "Bandymas12@",
       "avatarURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtAW7MoCWjH33jNU4yQpKGK054JKO2BJObQ&usqp=CAU",
       "role": "user"
+    },
+    {
+      "id": "d6714a9c-3c2b-4b02-a900-15b28c85ea7d",
+      "userName": "discodisco",
+      "password": "$2a$08$sMNiaGx5lG.SLv/d3tU83eEyUCmuHuUPIdETr36Ifbm0C/fkNse3e",
+      "passwordNoHash": "Partyparty1!",
+      "avatarURL": "https://play-lh.googleusercontent.com/nUzK8WjxbT-X59mlDYyPej6HO_j45Ou7qOIIgnJbTO6IzNA6iAU_kMdA38hHGONBv9c",
+      "role": "user"
     }
   ],
   "cards": [
@@ -128,7 +136,9 @@
       "title": "Help me guys",
       "description": "Maybe anyone of u can help me with REACT project? PM me if possible",
       "date": "Tue Mar 26 2024",
-      "upvotes": [],
+      "upvotes": [
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f"
+      ],
       "downvotes": [],
       "comments": [
         {
@@ -157,7 +167,8 @@
       "date": "Wed Mar 27 2024",
       "upvotes": [
         "4561939a-f09d-478d-815a-97e49650ed81",
-        "95d3e787-64c7-4e64-9162-1bf10fdd529f"
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f",
+        "d6714a9c-3c2b-4b02-a900-15b28c85ea7d"
       ],
       "downvotes": [],
       "comments": [
@@ -167,12 +178,33 @@
           "authorId": "4561939a-f09d-478d-815a-97e49650ed81"
         },
         {
-          "text": "laba diena viso gero",
-          "id": "035db493-86a0-4f7b-9fbf-709ca50a09c7",
+          "text": "llllllllllllllllll\n",
+          "id": "3ba9f421-9cef-461c-b1af-fd6090535575",
+          "authorId": "95d3e787-64c7-4e64-9162-1bf10fdd529f"
+        },
+        {
+          "text": "helloooooo\n",
+          "id": "65afd8f9-3ac2-4062-a0eb-56beceafee22",
           "authorId": "95d3e787-64c7-4e64-9162-1bf10fdd529f"
         }
       ],
       "edited": true
+    },
+    {
+      "id": "6089f632-5c89-45b7-bac6-ed4ad5aca17b",
+      "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
+      "title": "bts is cool lol",
+      "description": "looooooooooool",
+      "date": "Wed Mar 27 2024",
+      "upvotes": [],
+      "downvotes": []
+    },
+    {
+      "id": "1b9e18f2-79de-4af3-8f51-604bc8e3993d",
+      "userId": "17175948-0ab4-47eb-9089-9f2dee328f66",
+      "title": "11111111111111111111111110",
+      "description": "2222222222222222222",
+      "date": "Wed Mar 27 2024"
     }
   ]
 }

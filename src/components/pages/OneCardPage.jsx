@@ -205,7 +205,7 @@ const OneCardPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
-  const totalVotes = card ? card.upvotes.length - card.downvotes.length : 0;
+  const totalVotes = card && card.upvotes ? card.upvotes.length - (card.downvotes ?  card.downvotes.length : 0) : 0;
 
   useEffect(() => {
     if (card) {
@@ -281,11 +281,11 @@ const OneCardPage = () => {
                     <div className="votes">
                       <i
                         onClick={() => handleUpvote(card)}
-                        className={card.upvotes.includes(loggedInUser.id) ? "bi bi-arrow-up-square-fill" : "bi bi-arrow-up-square"
+                        className={ card && card.upvotes ? card.upvotes.includes(loggedInUser.id) ? "bi bi-arrow-up-square-fill" : "bi bi-arrow-up-square" : "bi bi-arrow-up-square"
                         }>
                       </i>
                       <i onClick={() => handleDownvote(card)}
-                        className={card.downvotes.includes(loggedInUser.id) ? "bi bi-arrow-down-square-fill" : "bi bi-arrow-down-square"
+                        className={ card && card.downvotes ? card.downvotes.includes(loggedInUser.id) ? "bi bi-arrow-down-square-fill" : "bi bi-arrow-down-square" : "bi bi-arrow-down-square"
                         }
                       ></i>
                       <p className={totalVotes > 0 ? "positive" : totalVotes < 0 ? "negative" : "none"}>{totalVotes}</p>
