@@ -72,6 +72,10 @@
       "userId": "1",
       "description": "Share a funny or embarrassing childhood memory that still makes you laugh.",
       "date": "Tue Mar 26 2024",
+      "upvotes": [
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f"
+      ],
+      "downvotes": [],
       "comments": [
         {
           "id": "0",
@@ -101,6 +105,10 @@
       "title": "Lets discuss",
       "description": "What's a skill you've always wanted to learn but haven't had the chance to yet?",
       "date": "Tue Mar 26 2024",
+      "upvotes": [],
+      "downvotes": [
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f"
+      ],
       "comments": [
         {
           "id": "0",
@@ -120,6 +128,8 @@
       "title": "Help me guys",
       "description": "Maybe anyone of u can help me with REACT project? PM me if possible",
       "date": "Tue Mar 26 2024",
+      "upvotes": [],
+      "downvotes": [],
       "comments": [
         {
           "text": "What kind of help do u need? I can help u with that ",
@@ -133,7 +143,9 @@
       "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
       "title": "Conversation Starters",
       "description": "Get the chatter flowing with these light-hearted and engaging questions! Perfect for breaking the ice at parties, family gatherings, or even on a casual night out with friends. Let the laughter and fun begin as you explore these quirky and entertaining topics together.",
-      "date": "Tue Mar 26 2024"
+      "date": "Tue Mar 26 2024",
+      "upvotes": [],
+      "downvotes": []
     },
     {
       "id": "12db7954-3a7b-4409-ac3a-5b02d31abe91",
@@ -141,6 +153,28 @@
       "title": "Labas Labas",
       "description": "Sveiki gyvi visi kzvurie esate",
       "date": "Tue Mar 26 2024",
+      "upvotes": [],
+      "downvotes": [],
+      "edited": true
+    },
+    {
+      "id": "6dddab0f-8144-4a1e-8e37-7ac7c98825a6",
+      "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
+      "title": "Is code academy worth it?",
+      "description": "I think CodeAcademy is bit overrated and not worth the time,whats your thoughts about this?",
+      "date": "Wed Mar 27 2024",
+      "upvotes": [
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f",
+        "4561939a-f09d-478d-815a-97e49650ed81"
+      ],
+      "downvotes": [],
+      "comments": [
+        {
+          "text": "Agree with you!",
+          "id": "664a4ba2-2ade-433f-8da2-d57fe9d08eac",
+          "authorId": "4561939a-f09d-478d-815a-97e49650ed81"
+        }
+      ],
       "edited": true
     }
   ]

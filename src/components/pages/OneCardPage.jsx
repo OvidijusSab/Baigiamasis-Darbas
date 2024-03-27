@@ -13,6 +13,40 @@ import { useState, useEffect } from 'react';
 const StyledSection = styled.section`
   padding-top: 50px;
   background-color: #424242; /* Dark grey background */
+  position: relative;
+  
+  >p:first-of-type{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .votes{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+
+    >i:first-of-type{
+      color: green;
+      cursor: pointer;
+      &:hover{
+        color: darkgreen;
+      }
+    }
+    >i:last-of-type{
+      color: red;
+      cursor: pointer;
+      &:hover{
+        color: darkred;
+      }
+    }
+    >p{
+      font-size: 20px;
+    }
+    font-size: 20px;
+  }
 
   > div:first-of-type{
     border: 1px solid #ddd;
@@ -30,11 +64,19 @@ const StyledSection = styled.section`
     background-color: #303030; /* Slightly lighter grey background for contrast */
 
     >p:first-of-type{
+    position: absolute;
+    bottom: 0px;
+    font-size: 12px;
+    color: #908c8c;
+    left: 10px;
+  }
+
+    >.edited{
       position: absolute;
       font-size: 12px;
       color: lightgray;
       bottom: 2px;
-      right: 5px;
+      right: 10px;
     }
     >div{
       position: relative;
@@ -58,8 +100,8 @@ const StyledSection = styled.section`
       color:red;
       font-size: 20px;
       position: absolute;
-      top:4px;
-      left: 4px;;
+      top:10px;
+      left: 10px;;
       cursor: pointer;
       &:hover{
         color: darkred;
@@ -69,8 +111,8 @@ const StyledSection = styled.section`
       color:blue;
       font-size: 20px;
       position: absolute;
-      top:4px;
-      right: 5px;;
+      top:10px;
+      right: 10px;;
       cursor: pointer;
 
       &:hover{
@@ -126,9 +168,33 @@ const StyledSection = styled.section`
       }
     }
   }
+  .positive{
+    color: green;
+  }
+  .negative{
+    color: red;
+  }
 `;
 
+
+
 const OneCardPage = () => {
+
+  const handleUpvote = () => {
+    setCards({
+      type: 'upvote',
+      cardId: card.id,
+      userId: loggedInUser.id
+    });
+  };
+
+  const handleDownvote = () => {
+    setCards({
+      type: 'downvote',
+      cardId: card.id,
+      userId: loggedInUser.id
+    });
+  };
 
   const { id } = useParams();
   const navigation = useNavigate();
@@ -139,6 +205,7 @@ const OneCardPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
+  const totalVotes = card ? card.upvotes.length - card.downvotes.length : 0;
 
   useEffect(() => {
     if (card) {
@@ -146,13 +213,6 @@ const OneCardPage = () => {
       setNewDescription(card.description);
     }
   }, [card]);
-
-  // const [card, setCard] = useState([]);
-  // useEffect(()=>{
-  //   fetch(`http://localhost:8080/cards/${id}`)
-  //     .then(res => res.json())
-  //     .then(data => setCard(data));
-  // },[id]);
 
   const formik = useFormik({
     initialValues: {
@@ -191,8 +251,9 @@ const OneCardPage = () => {
               <img src={author.avatarURL} alt="author image" />
               <span>{author.userName}</span>
             </div>
+            <p>Posted on: {card.date}</p>
             {
-              card.edited && <p>This post has been edited.</p>
+              card.edited && <p className="edited">This post has been edited.</p>
             }
             {
               isEditing ? (
@@ -215,6 +276,21 @@ const OneCardPage = () => {
                 <>
                   <h3>{card.title}</h3>
                   <p>{card.description}</p>
+                  {
+                    loggedInUser &&
+                    <div className="votes">
+                      <i
+                        onClick={() => handleUpvote(card)}
+                        className={card.upvotes.includes(loggedInUser.id) ? "bi bi-arrow-up-square-fill" : "bi bi-arrow-up-square"
+                        }>
+                      </i>
+                      <i onClick={() => handleDownvote(card)}
+                        className={card.downvotes.includes(loggedInUser.id) ? "bi bi-arrow-down-square-fill" : "bi bi-arrow-down-square"
+                        }
+                      ></i>
+                      <p className={totalVotes > 0 ? "positive" : totalVotes < 0 ? "negative" : "none"}>{totalVotes}</p>
+                    </div>
+                  }
                   {
                     loggedInUser.id === card.userId &&
                     <>
@@ -246,15 +322,15 @@ const OneCardPage = () => {
             <h3>Comments:</h3>
             {
               card.comments ?
-              card.comments?.map(comment =>
-              <>
-                <Comment
-                  key={comment.id}
-                  comment={comment}
-                  cardId={card.id}
-                />
-                </>
-              ) : <p>No comments yet.</p>
+                card.comments?.map(comment =>
+                  <>
+                    <Comment
+                      key={comment.id}
+                      comment={comment}
+                      cardId={card.id}
+                    />
+                  </>
+                ) : <p>No comments yet.</p>
             }
           </div>
           {

@@ -89,6 +89,48 @@ const reducer = (state, action) => {
           return el;
         }
       });
+      case 'upvote': {
+        const cardIndex = state.findIndex(card => card.id === action.cardId);
+        if (cardIndex !== -1) {
+          const card = state[cardIndex];
+          if (!card.upvotes.includes(action.userId)) {
+            card.upvotes.push(action.userId);
+            card.downvotes = card.downvotes.filter(id => id !== action.userId);
+          } else {
+            card.upvotes = card.upvotes.filter(id => id !== action.userId);
+          }
+          fetch(`http://localhost:8080/cards/${action.cardId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(card)
+          });
+          return [...state.slice(0, cardIndex), card, ...state.slice(cardIndex + 1)];
+        }
+        return state;
+      }
+      case 'downvote': {
+        const cardIndex = state.findIndex(card => card.id === action.cardId);
+        if (cardIndex !== -1) {
+          const card = state[cardIndex];
+          if (!card.downvotes.includes(action.userId)) {
+            card.downvotes.push(action.userId);
+            card.upvotes = card.upvotes.filter(id => id !== action.userId);
+          } else {
+            card.downvotes = card.downvotes.filter(id => id !== action.userId);
+          }
+          fetch(`http://localhost:8080/cards/${action.cardId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(card)
+          });
+          return [...state.slice(0, cardIndex), card, ...state.slice(cardIndex + 1)];
+        }
+        return state;
+      }
     default:
       console.error(`No such actions: ${action.type}`)
       return state;
