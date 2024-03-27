@@ -15,19 +15,19 @@ const StyledSection = styled.section`
   padding-top: 50px;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #424242; /* Dark grey background */
-  color: #fff; /* White text */
+  background-color: #424242;
+  color: #fff;
 
   > h1 {
     font-size: 2.5rem;
-    color: #90caf9; /* Light blue for the title */
+    color: #90caf9;
   }
 
   > form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    background-color: #303030; /* Slightly lighter grey for the form background */
+    background-color: #303030;
     padding: 20px;
     border-radius: 10px;
 
@@ -50,11 +50,11 @@ const StyledSection = styled.section`
       }
 
       > label {
-        color: #fff; /* White for labels */
+        color: #fff;
       }
 
       > p {
-        color: red; /* Red for error messages */
+        color: red;
         text-align: center;
         margin: 0;
       }
@@ -64,13 +64,13 @@ const StyledSection = styled.section`
       padding: 10px;
       border: none;
       border-radius: 5px;
-      background-color: #90caf9; /* Light blue for the button */
-      color: #000; /* Black for the button text */
+      background-color: #90caf9;
+      color: #000;
       cursor: pointer;
 
       &:hover {
-        background-color: #fff; /* White for the button on hover */
-        color: #000; /* Black for the button text on hover */
+        background-color: #fff;
+        color: #000; 
       }
     }
   }

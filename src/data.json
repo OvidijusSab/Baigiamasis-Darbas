@@ -152,12 +152,12 @@
     {
       "id": "6dddab0f-8144-4a1e-8e37-7ac7c98825a6",
       "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
-      "title": "Is code academy worth it?",
+      "title": "Is CodeAcademy worth it?",
       "description": "I think CodeAcademy is overrated and not worth the time,whats your thoughts about this?",
       "date": "Wed Mar 27 2024",
       "upvotes": [
-        "95d3e787-64c7-4e64-9162-1bf10fdd529f",
-        "4561939a-f09d-478d-815a-97e49650ed81"
+        "4561939a-f09d-478d-815a-97e49650ed81",
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f"
       ],
       "downvotes": [],
       "comments": [
@@ -165,6 +165,11 @@
           "text": "Agree with you!",
           "id": "664a4ba2-2ade-433f-8da2-d57fe9d08eac",
           "authorId": "4561939a-f09d-478d-815a-97e49650ed81"
+        },
+        {
+          "text": "laba diena viso gero",
+          "id": "035db493-86a0-4f7b-9fbf-709ca50a09c7",
+          "authorId": "95d3e787-64c7-4e64-9162-1bf10fdd529f"
         }
       ],
       "edited": true

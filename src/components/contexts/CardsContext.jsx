@@ -8,7 +8,8 @@ export const CardsActionTypes = {
   delete: "delete one specific card",
   addComment: "add new comment to specific card",
   deleteComment: 'delete one specific comment',
-  edit: "edit one specific card"
+  edit: "edit one specific card",
+  editComment: 'EDIT_COMMENT'
 }
 
 const reducer = (state, action) => {
@@ -89,48 +90,66 @@ const reducer = (state, action) => {
           return el;
         }
       });
-      case 'upvote': {
-        const cardIndex = state.findIndex(card => card.id === action.cardId);
-        if (cardIndex !== -1) {
-          const card = state[cardIndex];
-          if (!card.upvotes.includes(action.userId)) {
-            card.upvotes.push(action.userId);
-            card.downvotes = card.downvotes.filter(id => id !== action.userId);
-          } else {
-            card.upvotes = card.upvotes.filter(id => id !== action.userId);
-          }
-          fetch(`http://localhost:8080/cards/${action.cardId}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(card)
-          });
-          return [...state.slice(0, cardIndex), card, ...state.slice(cardIndex + 1)];
+    case 'upvote': {
+      const cardIndex = state.findIndex(card => card.id === action.cardId);
+      if (cardIndex !== -1) {
+        const card = state[cardIndex];
+        if (!card.upvotes.includes(action.userId)) {
+          card.upvotes.push(action.userId);
+          card.downvotes = card.downvotes.filter(id => id !== action.userId);
+        } else {
+          card.upvotes = card.upvotes.filter(id => id !== action.userId);
         }
-        return state;
+        fetch(`http://localhost:8080/cards/${action.cardId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(card)
+        });
+        return [...state.slice(0, cardIndex), card, ...state.slice(cardIndex + 1)];
       }
-      case 'downvote': {
-        const cardIndex = state.findIndex(card => card.id === action.cardId);
-        if (cardIndex !== -1) {
-          const card = state[cardIndex];
-          if (!card.downvotes.includes(action.userId)) {
-            card.downvotes.push(action.userId);
-            card.upvotes = card.upvotes.filter(id => id !== action.userId);
-          } else {
-            card.downvotes = card.downvotes.filter(id => id !== action.userId);
-          }
-          fetch(`http://localhost:8080/cards/${action.cardId}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(card)
-          });
-          return [...state.slice(0, cardIndex), card, ...state.slice(cardIndex + 1)];
+      return state;
+    }
+    case 'downvote': {
+      const cardIndex = state.findIndex(card => card.id === action.cardId);
+      if (cardIndex !== -1) {
+        const card = state[cardIndex];
+        if (!card.downvotes.includes(action.userId)) {
+          card.downvotes.push(action.userId);
+          card.upvotes = card.upvotes.filter(id => id !== action.userId);
+        } else {
+          card.downvotes = card.downvotes.filter(id => id !== action.userId);
         }
-        return state;
+        fetch(`http://localhost:8080/cards/${action.cardId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(card)
+        });
+        return [...state.slice(0, cardIndex), card, ...state.slice(cardIndex + 1)];
       }
+      return state;
+    }
+    case CardsActionTypes.editComment:
+      return state.map(card => {
+        if (card.id === action.cardId) {
+          return {
+            ...card,
+            comments: card.comments.map(comment => {
+              if (comment.id === action.commentId) {
+                return {
+                  ...comment,
+                  text: action.newText
+                };
+              }
+              return comment;
+            })
+          };
+        }
+        return card;
+      });
     default:
       console.error(`No such actions: ${action.type}`)
       return state;

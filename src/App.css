@@ -1,29 +1,24 @@
-/* Import the fonts */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
-/* Set the font for the entire website */
 body {
   font-family: 'Roboto', sans-serif;
-  color: #fff; /* White for text */
-  background-color: #424242; /* Dark grey for background */
+  color: #fff; 
+  background-color: #424242; 
   margin: 0;
 }
 
-/* Set the color for headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #fff; /* White for headings */
+  color: #fff; 
 }
 
-/* Set the color for links */
 a {
-  color: #90caf9; /* Light blue for links */
+  color: #90caf9; 
 }
 
-/* Set the color for buttons */
 button {
-  background-color: #90caf9; /* Light blue for buttons */
-  color: #000; /* Black for button text */
+  background-color: #90caf9;
+  color: #000;
 }
 
 main{

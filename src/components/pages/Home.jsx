@@ -30,9 +30,9 @@ const Home = () => {
       <h1>Home</h1>
       <div>
         <img
-          src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8fDA%3D"
+          src="https://assets-global.website-files.com/6048aaba41858510b17e1809/607474d55c073509225d156e_6048aaba418585fbbf7e1d13_forums.jpeg"
           alt="photo" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo magnam, illum voluptas dolor doloribus sint inventore animi optio quos tempora corporis quam, a dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut cum iure consequatur distinctio excepturi eligendi reprehenderit, voluptatum sint quibusdam debitis.</p>
+          <p>Welcome to our forum hub, the vibrant nexus where communication thrives, questions find their answers, and ideas flow freely. Here, you'll discover a dynamic community eager to engage in thoughtful discussions, share insights, and explore a multitude of themes. Whether you're seeking advice, pondering intriguing concepts, or simply connecting with like-minded individuals, our forum offers the perfect platform. Dive into conversations spanning diverse topics, from technology to literature, science to art, and everything in between. Ask questions, offer perspectives, and ignite conversations that inspire growth and learning. Join us in shaping a space where curiosity knows no bounds and where the exchange of ideas fuels innovation. Welcome aboard, and let the dialogue begin!</p>
       </div>
     </StyledSection>
 

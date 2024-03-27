@@ -54,7 +54,7 @@ const StyledHeader = styled.header`
     align-items: center;
 
     >span>a{
-      color: #fff; /* White for links */
+      color: #fff;
       text-decoration: none;
     }
   }
@@ -63,12 +63,12 @@ const StyledHeader = styled.header`
     border: none;
     font-size: 12px;
     border-radius: 5px;
-    background-color: #fff; /* Light blue for the button */
-    color: #000; /* Black for the button text */
+    background-color: #fff; 
+    color: #000; 
     cursor: pointer;
 
     &:hover{
-      background-color: #90caf9; /* Light blue on hover */
+      background-color: #90caf9;
     }
   
   }
