@@ -25,6 +25,7 @@ gap: 20px;
 
   > h1{
     text-align: center;
+    font-size: 2rem;
   }
   > p {
     text-align: center;

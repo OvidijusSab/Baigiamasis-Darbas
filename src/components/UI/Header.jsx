@@ -5,10 +5,10 @@ import { useContext } from "react";
 
 const StyledHeader = styled.header`
   padding: 0 20px;
-  border-bottom: 1px solid #90caf9; /* Light blue border */
+  border-bottom: 1px solid #90caf9; 
   height: 80px;
-  background-color: #303030; /* Slightly lighter than the body background for contrast */
-  color: #fff; /* White for text */
+  background-color: #303030; 
+  color: #fff; 
 
   display: flex;
   justify-content: space-between;
@@ -34,15 +34,15 @@ const StyledHeader = styled.header`
         >a{
           text-decoration: none;
           font-size: 1.5rem;
-          color: #fff; /* White for links */
+          color: #fff; 
           font-weight: bold;
 
           &:hover{
-            color: #90caf9; /* Light blue on hover */
+            color: #90caf9; 
           }
         }
         >a.active{
-          color: #6c9cc4; /* Light blue for active link */
+          color: #6c9cc4;
         }
       }
     }
@@ -54,9 +54,26 @@ const StyledHeader = styled.header`
     align-items: center;
 
     >span>a{
-      color: #fff;
+      color: white ;
       text-decoration: none;
+      position: relative;
+
+      
+    >span{
+      position: absolute;
+      background-color: gray;
+      border-radius: 5px;
+      font-size: 12px;
+      bottom: 3px;
+      left:1px
     }
+    >img{
+      width: 50px;
+      height: 100%;
+      border-radius: 50%;
+    }
+    }
+    
   }
   div>button{
     padding: 5px 5px;
@@ -105,17 +122,18 @@ const Header = () => {
                 <Link to={'/user/adminPanel'}>Admin Panel</Link>
               </p>
             }
-            <span>
-              <Link to={`/user/${loggedInUser.userName}`}>
-                {loggedInUser.userName}
-              </Link>
-            </span>
-            <button
+             <button
               onClick={() => {
                 setLoggedInUser(false)
                 navigate('/')
               }}
             >Log Out</button>
+            <span>
+              <Link to={`/user/${loggedInUser.userName}`}>
+                <img src={loggedInUser.avatarURL} alt="author image" />
+                <span>{loggedInUser.userName}</span>
+              </Link>
+            </span>
           </div> :
           <nav>
             <ul>
