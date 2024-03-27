@@ -94,6 +94,8 @@ const reducer = (state, action) => {
       const cardIndex = state.findIndex(card => card.id === action.cardId);
       if (cardIndex !== -1) {
         const card = state[cardIndex];
+        card.upvotes = card.upvotes || [];
+        card.downvotes = card.downvotes || [];
         if (!card.upvotes.includes(action.userId)) {
           card.upvotes.push(action.userId);
           card.downvotes = card.downvotes.filter(id => id !== action.userId);
@@ -115,6 +117,8 @@ const reducer = (state, action) => {
       const cardIndex = state.findIndex(card => card.id === action.cardId);
       if (cardIndex !== -1) {
         const card = state[cardIndex];
+        card.upvotes = card.upvotes || [];
+        card.downvotes = card.downvotes || [];
         if (!card.downvotes.includes(action.userId)) {
           card.downvotes.push(action.userId);
           card.upvotes = card.upvotes.filter(id => id !== action.userId);

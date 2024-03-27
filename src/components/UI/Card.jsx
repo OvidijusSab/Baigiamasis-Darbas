@@ -97,7 +97,7 @@ const Card = ({ data, location }) => {
   const { id } = useParams();
   const author = users.find(user => user.id === data.userId);
   const commentsCount = data.comments ? data.comments.length : 0;
-  const totalVotes = data.upvotes.length + data.downvotes.length;
+  const totalVotes = data.upvotes ? data.upvotes.length + data.downvotes ? data.downvotes.length : 0 : 0;
   return (
     <StyledDiv className='box'>
       <div>
