@@ -5,8 +5,10 @@ import { useContext } from "react";
 
 const StyledHeader = styled.header`
   padding: 0 20px;
-  border-bottom:3px dashed black;
+  border-bottom: 1px solid #90caf9; /* Light blue border */
   height: 80px;
+  background-color: #303030; /* Slightly lighter than the body background for contrast */
+  color: #fff; /* White for text */
 
   display: flex;
   justify-content: space-between;
@@ -32,15 +34,15 @@ const StyledHeader = styled.header`
         >a{
           text-decoration: none;
           font-size: 1.5rem;
-          color: black;
+          color: #fff; /* White for links */
           font-weight: bold;
 
           &:hover{
-            color:green;
+            color: #90caf9; /* Light blue on hover */
           }
         }
         >a.active{
-          color:red;
+          color: #6c9cc4; /* Light blue for active link */
         }
       }
     }
@@ -52,16 +54,11 @@ const StyledHeader = styled.header`
     align-items: center;
 
     >span>a{
-      color: black;
+      color: #fff; /* White for links */
       text-decoration: none;
     }
-
-    >span{
-      font-weight:bold;
-      font-size: 20px;
-    }
   }
-`
+`;
 
 const Header = () => {
 

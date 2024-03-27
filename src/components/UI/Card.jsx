@@ -16,7 +16,8 @@ const StyledDiv = styled.div`
   position: relative;
 
   >h3{
-    margin:0
+    margin:0;
+    text-transform: uppercase;
   }
   >p{
     margin: 0;

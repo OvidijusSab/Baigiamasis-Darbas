@@ -12,25 +12,26 @@ import { useState, useEffect } from 'react';
 
 const StyledSection = styled.section`
   padding-top: 50px;
+  background-color: #424242; /* Dark grey background */
 
-  > div{
-    border: 1px solid black;
+  > div:first-of-type{
+    border: 1px solid #ddd;
     padding: 10px 20px;
-
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 20px;
+    position: relative;
     display: flex;
     gap: 10px;
     flex-direction: column;
     align-items: center;
-    > h3{
-      margin: 0;
-    }
-    > p{
-      margin: 0;
-      text-align: justify;
-    }
+    font-family: 'Roboto', sans-serif;
+    color: #fff; /* White text */
+    background-color: #303030; /* Slightly lighter grey background for contrast */
+
     >div{
       position: relative;
-      
+ 
     >span{
       position: absolute;
       background-color: gray;
@@ -45,11 +46,30 @@ const StyledSection = styled.section`
       border-radius: 50%;
     }
   } 
-  }
-  >div:nth-child(2){
-    display: flex;
-    align-items: flex-start;
-    
+
+    >i:first-of-type{
+      color:red;
+      font-size: 20px;
+      position: absolute;
+      top:4px;
+      left: 4px;;
+      cursor: pointer;
+      &:hover{
+        color: darkred;
+      }
+    }
+    >i:nth-of-type(2){
+      color:blue;
+      font-size: 20px;
+      position: absolute;
+      top:4px;
+      right: 5px;;
+      cursor: pointer;
+
+      &:hover{
+        color: darkblue;
+      }
+    }
   }
 `;
 
@@ -116,14 +136,14 @@ const OneCardPage = () => {
               <img src={author.avatarURL} alt="author image" />
               <span>{author.userName}</span>
             </div>
-              {
-                card.edited && <p>This card has been edited.</p>
-              }
+            {
+              card.edited && <p>This card has been edited.</p>
+            }
             {
               isEditing ? (
                 <>
                   <input value={newTitle} onChange={e => setNewTitle(e.target.value)} />
-                  <input value={newDescription} onChange={e => setNewDescription(e.target.value)} />
+                  <textarea value={newDescription} onChange={e => setNewDescription(e.target.value)} />
                   <button
                     onClick={() => {
                       setCards({
@@ -143,7 +163,8 @@ const OneCardPage = () => {
                   {
                     loggedInUser.id === card.userId &&
                     <>
-                      <button
+                      <i
+                        className="bi bi-trash"
                         onClick={() => {
                           setCards({
                             type: CardsActionTypes.delete,
@@ -151,14 +172,15 @@ const OneCardPage = () => {
                           });
                           navigation(-1);
                         }}
-                      >Delete</button>
-                      <button
+                      ></i>
+                      <i
+                        className="bi bi-pencil-square"
                         onClick={() => {
                           setIsEditing(true);
                           setNewTitle(card.title);
                           setNewDescription(card.description);
                         }}
-                      >Edit</button>
+                      ></i>
                     </>
                   }
                 </>
@@ -166,21 +188,25 @@ const OneCardPage = () => {
             }
           </div>
           <div>
+            <h3>Comments:</h3>
             {
+              card.comments ?
               card.comments?.map(comment =>
+              <>
                 <Comment
                   key={comment.id}
                   comment={comment}
                   cardId={card.id}
                 />
-              )
+                </>
+              ) : <p>No comments yet.</p>
             }
           </div>
           {
             loggedInUser &&
             <form onSubmit={formik.handleSubmit}>
               <div>
-                <label htmlFor="text">Comment:</label>
+                <label htmlFor="text">Write your comment:</label>
                 <textarea
                   name="text" id="text"
                   placeholder="Write your comment..."
