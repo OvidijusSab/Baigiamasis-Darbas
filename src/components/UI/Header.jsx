@@ -83,7 +83,7 @@ const Header = () => {
       <div>
         <Link to="/">
           <img
-            src="https://img.stackshare.io/service/8846/preview.png"
+            src="https://www.freepnglogos.com/uploads/threads-logo-png/threads-instagram-black-logo-png-3.png"
             alt="asd" /></Link>
       </div>
       <nav>

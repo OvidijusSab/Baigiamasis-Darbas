@@ -144,24 +144,16 @@
       "title": "Conversation Starters",
       "description": "Get the chatter flowing with these light-hearted and engaging questions! Perfect for breaking the ice at parties, family gatherings, or even on a casual night out with friends. Let the laughter and fun begin as you explore these quirky and entertaining topics together.",
       "date": "Tue Mar 26 2024",
-      "upvotes": [],
+      "upvotes": [
+        "95d3e787-64c7-4e64-9162-1bf10fdd529f"
+      ],
       "downvotes": []
-    },
-    {
-      "id": "12db7954-3a7b-4409-ac3a-5b02d31abe91",
-      "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
-      "title": "Labas Labas",
-      "description": "Sveiki gyvi visi kzvurie esate",
-      "date": "Tue Mar 26 2024",
-      "upvotes": [],
-      "downvotes": [],
-      "edited": true
     },
     {
       "id": "6dddab0f-8144-4a1e-8e37-7ac7c98825a6",
       "userId": "95d3e787-64c7-4e64-9162-1bf10fdd529f",
       "title": "Is code academy worth it?",
-      "description": "I think CodeAcademy is bit overrated and not worth the time,whats your thoughts about this?",
+      "description": "I think CodeAcademy is overrated and not worth the time,whats your thoughts about this?",
       "date": "Wed Mar 27 2024",
       "upvotes": [
         "95d3e787-64c7-4e64-9162-1bf10fdd529f",

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CardsContext from "../contexts/CardsContext";
 import UsersContext from "../contexts/UsersContext";
 import Card from "../UI/Card";
@@ -45,19 +45,50 @@ gap: 20px;
    
   }
 `;
+const StyledSelect = styled.select`
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #303030;
+  color: #f7f7f7;
+  margin-bottom: 20px;
+  align-self: flex-end;
+`;
 
 const Cards = () => {
 
   const { cards } = useContext(CardsContext);
   const { loggedInUser } = useContext(UsersContext);
   const location = useLocation();
+  const [sortOrder, setSortOrder] = useState('desc');
 
+  const sortedCards = [...cards].sort((a, b) => {
+    switch (sortOrder) {
+      case 'desc':
+        return new Date(b.date) - new Date(a.date);
+      case 'asc':
+        return new Date(a.date) - new Date(b.date);
+      case 'comments':
+        return (b.comments ? b.comments.length : 0) - (a.comments ? a.comments.length : 0);
+      case 'votes':
+        return ((b.upvotes ? b.upvotes.length : 0) - (b.downvotes ? b.downvotes.length : 0)) - ((a.upvotes ? a.upvotes.length : 0) - (a.downvotes ? a.downvotes.length : 0));
+      default:
+        return 0;
+    }
+  });
   return (
     <StyledSection>
       <h1>All posts</h1>
+      <StyledSelect value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+        <option value="desc">Sort by Latest</option>
+        <option value="asc">Sort by Earliest</option>
+        <option value="comments">Sort by Comment Count</option>
+        <option value="votes">Sort by Vote Count</option>
+      </StyledSelect>
       {loggedInUser && <Link to="/cards/addNew">Add new post</Link>}
       {
-        cards.map(card =>
+        sortedCards.map(card =>
           <Card
             key={card.id}
             data={card}
@@ -65,7 +96,6 @@ const Cards = () => {
           />
         )
       }
-
     </StyledSection>
   );
 }
