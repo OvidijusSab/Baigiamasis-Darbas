@@ -122,7 +122,7 @@ const Header = () => {
                 <Link to={'/user/adminPanel'}>Admin Panel</Link>
               </p>
             }
-             <button
+            <button
               onClick={() => {
                 setLoggedInUser(false)
                 navigate('/')
@@ -130,7 +130,7 @@ const Header = () => {
             >Log Out</button>
             <span>
               <Link to={`/user/${loggedInUser.userName}`}>
-                <img src={loggedInUser.avatarURL} alt="author image" />
+                <img src={loggedInUser.avatarURL && loggedInUser.avatarURL} alt="author image" />
                 <span>{loggedInUser.userName}</span>
               </Link>
             </span>

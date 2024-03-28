@@ -97,13 +97,13 @@ const Card = ({ data, location }) => {
   const { id } = useParams();
   const author = users.find(user => user.id === data.userId);
   const commentsCount = data.comments ? data.comments.length : 0;
-  const totalVotes = data.upvotes ? data.upvotes.length + data.downvotes ? data.downvotes.length : 0 : 0;
+  const totalVotes = (data.upvotes ? data.upvotes.length : 0) + (data.downvotes ? data.downvotes.length : 0);
   return (
     <StyledDiv className='box'>
       <div>
         <h4>Posted by:</h4>
         <div>
-          <img src={author.avatarURL} alt="author image" />
+          <img src={author.avatarURL && author.avatarURL} alt="author image" />
           <span>{author.userName}</span>
         </div>
       </div>
