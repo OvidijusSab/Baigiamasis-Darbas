@@ -248,7 +248,7 @@ const OneCardPage = () => {
         <>
           <div>
             <div>
-              <img src={author.avatarURL} alt="author image" />
+              <img src={ author.avatarURL && author.avatarURL} alt="author image" />
               <span>{author.userName}</span>
             </div>
             <p>Posted on: {card.date}</p>

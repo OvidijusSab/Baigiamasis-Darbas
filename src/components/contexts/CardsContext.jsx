@@ -143,10 +143,20 @@ const reducer = (state, action) => {
             ...card,
             comments: card.comments.map(comment => {
               if (comment.id === action.commentId) {
-                return {
+                const updatedComment = {
                   ...comment,
-                  text: action.newText
+                  text: action.newText,
+                  isEdited: true
                 };
+                fetch(`http://localhost:8080/comments/${action.commentId}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify(updatedComment)
+                });
+
+                return updatedComment;
               }
               return comment;
             })
